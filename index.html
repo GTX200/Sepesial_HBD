@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff4f81">
+  <meta name="description" content="Website romantis untuk seseorang yang paling spesial.">
+  <title>Untuk Kamu, Cintaku ❤️</title>
+  <style>
+    :root{
+      --pink:#ff4f81; --rose:#ff7aa2; --deep:#180914; --wine:#4a102d;
+      --glass:rgba(255,255,255,.10); --line:rgba(255,255,255,.18);
+      --text:#fff7fb; --muted:#ffd8e5;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Georgia,"Times New Roman",serif;color:var(--text);background:
+      radial-gradient(circle at 20% 10%,#7d234f 0,transparent 28%),
+      radial-gradient(circle at 85% 25%,#a32c5d 0,transparent 25%),
+      linear-gradient(135deg,#10050d,#300b20 50%,#12050d);
+      overflow-x:hidden;line-height:1.8;
+    }
+    a{color:inherit;text-decoration:none}
+    .stars,.hearts{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+    .star{position:absolute;width:3px;height:3px;background:#fff;border-radius:50%;animation:twinkle 3s infinite ease-in-out}
+    .heart{position:absolute;color:#ff8faf;opacity:.65;animation:float 9s linear infinite;font-size:20px}
+    @keyframes twinkle{50%{opacity:.15;transform:scale(.5)}}
+    @keyframes float{0%{transform:translateY(110vh) rotate(0);opacity:0}15%{opacity:.7}100%{transform:translateY(-15vh) rotate(360deg);opacity:0}}
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:center;
+      gap:10px;padding:14px;background:rgba(20,5,14,.72);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)
+    }
+    nav a{padding:7px 12px;border-radius:99px;font-size:14px;color:#ffe5ee;transition:.3s}
+    nav a:hover{background:var(--pink);transform:translateY(-2px)}
+    section{position:relative;z-index:2;max-width:1120px;margin:auto;padding:105px 22px 70px}
+    .hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding-top:130px}
+    .badge{display:inline-block;padding:8px 16px;border:1px solid var(--line);border-radius:99px;background:var(--glass);color:#ffd5e2;letter-spacing:2px}
+    h1{font-size:clamp(48px,9vw,100px);line-height:1.02;margin:22px 0;background:linear-gradient(90deg,#fff,#ff9dbb,#fff);-webkit-background-clip:text;color:transparent}
+    h2{font-size:clamp(32px,5vw,56px);margin-bottom:18px}
+    .subtitle{font-size:clamp(18px,2.5vw,25px);max-width:760px;margin:auto;color:var(--muted)}
+    .btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .btn{padding:13px 21px;border-radius:99px;border:1px solid #ff8cac;background:linear-gradient(135deg,#ff477c,#b51d55);box-shadow:0 10px 35px rgba(255,57,120,.25);transition:.3s}
+    .btn:hover{transform:translateY(-4px) scale(1.02)}
+    .glass{background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:1px solid var(--line);border-radius:28px;box-shadow:0 25px 80px rgba(0,0,0,.28);backdrop-filter:blur(16px)}
+    .letter{padding:34px;font-size:18px;color:#ffe8f0}
+    .letter p{margin-bottom:18px}
+    .signature{font-style:italic;text-align:right;color:#ff9dbb;font-size:24px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{padding:26px;text-align:center;transition:.4s}
+    .card:hover{transform:translateY(-8px);border-color:#ff6e98}
+    .emoji{font-size:42px;margin-bottom:8px}
+    .timeline{display:grid;gap:15px}
+    .memory{padding:24px;display:grid;grid-template-columns:90px 1fr;gap:18px;align-items:center}
+    .date{font-size:14px;color:#ffabc3;text-align:center;border:1px solid var(--line);padding:10px;border-radius:16px}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .gallery figure{overflow:hidden;border-radius:22px;border:1px solid var(--line);background:#1d0915}
+    .gallery img{width:100%;height:270px;object-fit:cover;display:block;transition:.6s}
+    .gallery figure:hover img{transform:scale(1.08)}
+    figcaption{padding:11px;text-align:center;color:#ffd6e3}
+    video{width:100%;max-height:620px;border-radius:22px;display:block;background:#080308}
+    .music{display:flex;align-items:center;gap:20px;padding:25px;flex-wrap:wrap}
+    .disc{width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,#fff 0 7%,#ff4f81 8% 30%,#6f153c 31% 100%);box-shadow:0 0 35px #ff4f81;animation:spin 4s linear infinite}
+    .paused{animation-play-state:paused}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .counter{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:25px}
+    .count{padding:20px;text-align:center}.count b{display:block;font-size:36px;color:#ff8faf}.count span{color:#ffd7e3;font-size:13px}
+    .promise{font-size:22px;text-align:center;padding:38px}
+    .quote{font-size:26px;text-align:center;font-style:italic;padding:40px}
+    footer{text-align:center;padding:70px 20px;color:#ffc5d6;position:relative;z-index:2}
+    .secret{display:none;padding:20px;margin-top:15px;text-align:center;color:#ffe9f1}
+    .show{display:block;animation:fade .7s}
+    @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+    .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);z-index:50;background:#fff;color:#57102e;padding:12px 18px;border-radius:99px;box-shadow:0 15px 50px #0008;transition:.4s}
+    .toast.on{transform:translateX(-50%) translateY(0)}
+    @media(max-width:800px){.grid,.gallery{grid-template-columns:1fr 1fr}.memory{grid-template-columns:1fr}.counter{grid-template-columns:1fr 1fr}}
+    @media(max-width:520px){nav{overflow:auto;justify-content:flex-start}.grid,.gallery{grid-template-columns:1fr}.hero{padding-top:120px}.letter{padding:24px}}
+  </style>
+</head>
+<body>
+<div class="stars" id="stars"></div><div class="hearts" id="hearts"></div>
+<nav>
+  <a href="#home">Home</a><a href="#surat">Surat</a><a href="#kisah">Kisah</a><a href="#galeri">Galeri</a><a href="#video">Video</a><a href="#musik">Musik</a><a href="#janji">Janji</a><a href="#wa">WhatsApp</a>
+</nav>
+
+<section id="home" class="hero">
+  <div>
+    <span class="badge">A LITTLE WEBSITE FOR MY FAVORITE PERSON ♡</span>
+    <h1>Untuk Kamu,<br>Cintaku ❤️</h1>
+    <p class="subtitle">Di antara miliaran manusia, entah bagaimana semesta mempertemukan aku denganmu. Dan sejak itu, kata "pulang" punya arti yang berbeda.</p>
+    <div class="btns"><a class="btn" href="#surat">Buka Surat Cinta 💌</a><button class="btn" onclick="surprise()">Klik untuk kejutan ✨</button></div>
+    <div id="secret" class="secret glass">Kalau kamu membaca ini sampai sini: aku sayang kamu. Hari ini, besok, dan di hari-hari ketika kita sama-sama lelah. ❤️</div>
+  </div>
+</section>
+
+<section id="surat">
+  <h2>Surat Kecil Untukmu 💌</h2>
+  <div class="glass letter">
+    <p>Sayang,</p>
+    <p>Aku tidak tahu kapan tepatnya rasa ini berubah menjadi sesuatu yang begitu dalam. Mungkin dari percakapan sederhana, tawa kecil, perhatian yang kamu berikan, atau dari caramu membuat hari biasa terasa jauh lebih indah.</p>
+    <p>Yang aku tahu, sejak ada kamu, aku belajar bahwa dicintai bukan hanya tentang kata-kata manis. Dicintai adalah ketika seseorang membuat kita merasa aman menjadi diri sendiri. Dan bersamamu, aku ingin terus belajar menjadi versi terbaik dari diriku.</p>
+    <p>Aku tidak berjanji hidup kita akan selalu sempurna. Akan ada hari ketika kita salah paham, lelah, diam, atau tidak sepakat. Tapi aku ingin kita selalu punya keberanian untuk kembali berbicara, kembali memahami, dan kembali memilih satu sama lain.</p>
+    <p>Jika suatu hari rambut kita memutih, langkah kita melambat, dan dunia sudah berubah berkali-kali, aku ingin masih bisa menatapmu sambil berkata: <strong>"Ternyata, memilihmu dulu adalah salah satu keputusan terbaik dalam hidupku."</strong></p>
+    <p>Terima kasih sudah hadir. Terima kasih sudah menjadi kamu. Dan terima kasih karena tanpa sadar, kamu telah menjadi salah satu alasan aku ingin pulang dengan hati yang tenang.</p>
+    <p class="signature">Selalu, untukmu. ❤️</p>
+  </div>
+</section>
+
+<section id="kisah">
+  <h2>Kisah Kita 🌙</h2>
+  <div class="timeline">
+    <div class="glass memory"><div class="date">MOMEN<br>01</div><div><h3>Pertama Bertemu</h3><p>Hari ketika dua cerita yang berbeda mulai berjalan menuju halaman yang sama.</p></div></div>
+    <div class="glass memory"><div class="date">MOMEN<br>02</div><div><h3>Mulai Dekat</h3><p>Percakapan yang awalnya sederhana, berubah menjadi hal yang diam-diam selalu aku tunggu.</p></div></div>
+    <div class="glass memory"><div class="date">MOMEN<br>03</div><div><h3>Menjadi Kita</h3><p>Dari "aku dan kamu" menjadi "kita". Dari sekadar bertemu menjadi saling menjaga.</p></div></div>
+    <div class="glass memory"><div class="date">MOMEN<br>∞</div><div><h3>Masih Berlanjut...</h3><p>Karena kisah terbaik kita belum selesai. Masih ada banyak tempat, tawa, foto, dan kenangan yang ingin kita buat.</p></div></div>
+  </div>
+</section>
+
+<section>
+  <h2>Kenapa Aku Memilihmu? 💗</h2>
+  <div class="grid">
+    <div class="glass card"><div class="emoji">🌷</div><h3>Senyummu</h3><p>Sederhana, tapi selalu punya kemampuan untuk memperbaiki hari yang buruk.</p></div>
+    <div class="glass card"><div class="emoji">🏡</div><h3>Rasa Nyaman</h3><p>Di dekatmu aku tidak perlu berpura-pura menjadi siapa-siapa.</p></div>
+    <div class="glass card"><div class="emoji">🤍</div><h3>Caramu Peduli</h3><p>Hal-hal kecil yang kamu lakukan sering kali berarti sangat besar bagiku.</p></div>
+    <div class="glass card"><div class="emoji">🌙</div><h3>Teman Pulang</h3><p>Aku ingin menjadi tempatmu bercerita, beristirahat, dan merasa diterima.</p></div>
+    <div class="glass card"><div class="emoji">✨</div><h3>Mimpi Kita</h3><p>Aku ingin melihat masa depan sambil membayangkan kamu tetap ada di dalamnya.</p></div>
+    <div class="glass card"><div class="emoji">♾️</div><h3>Memilih Lagi</h3><p>Kalau diberi kesempatan mengulang, aku tetap ingin menemukanmu.</p></div>
+  </div>
+</section>
+
+<section id="galeri">
+  <h2>Galeri Kenangan 📸</h2>
+  <p class="subtitle" style="margin-bottom:25px">Ganti file foto di folder <b>assets</b> dengan foto kalian. Nama file sudah disiapkan.</p>
+  <div class="gallery">
+    <figure><img src="assets/foto1.jpg" alt="Kenangan 1" onerror="this.src='https://placehold.co/900x700/3a1026/ffd9e5?text=FOTO+1'"><figcaption>Kenangan yang selalu ingin diulang ♡</figcaption></figure>
+    <figure><img src="assets/foto2.jpg" alt="Kenangan 2" onerror="this.src='https://placehold.co/900x700/3a1026/ffd9e5?text=FOTO+2'"><figcaption>Senyummu, favoritku.</figcaption></figure>
+    <figure><img src="assets/foto3.jpg" alt="Kenangan 3" onerror="this.src='https://placehold.co/900x700/3a1026/ffd9e5?text=FOTO+3'"><figcaption>Bahagia sesederhana bersama kamu.</figcaption></figure>
+    <figure><img src="assets/foto4.jpg" alt="Kenangan 4" onerror="this.src='https://placehold.co/900x700/3a1026/ffd9e5?text=FOTO+4'"><figcaption>Hari biasa yang jadi luar biasa.</figcaption></figure>
+    <figure><img src="assets/foto5.jpg" alt="Kenangan 5" onerror="this.src='https://placehold.co/900x700/3a1026/ffd9e5?text=FOTO+5'"><figcaption>Kita, dalam satu bingkai.</figcaption></figure>
+    <figure><img src="assets/foto6.jpg" alt="Kenangan 6" onerror="this.src='https://placehold.co/900x700/3a1026/ffd9e5?text=FOTO+6'"><figcaption>Semoga masih banyak lagi.</figcaption></figure>
+  </div>
+</section>
+
+<section id="video">
+  <h2>Film Kecil Tentang Kita 🎬</h2>
+  <div class="glass" style="padding:12px"><video controls poster="assets/poster.jpg"><source src="assets/video.mp4" type="video/mp4">Browser kamu tidak mendukung video.</video></div>
+</section>
+
+<section id="musik">
+  <h2>Putar Lagu Kita 🎵</h2>
+  <div class="glass music">
+    <div class="disc" id="disc"></div>
+    <div style="flex:1"><h3>Our Love Song</h3><p style="color:#ffd4e2">Masukkan lagu favoritmu sebagai <b>assets/lagu.mp3</b>.</p></div>
+    <audio id="audio" controls loop><source src="assets/lagu.mp3" type="audio/mpeg"></audio>
+  </div>
+</section>
+
+<section>
+  <h2>Sudah Berapa Lama Kita? ⏳</h2>
+  <p class="subtitle">Atur tanggal mulai hubungan di JavaScript pada bagian <b>relationshipStart</b>.</p>
+  <div class="counter">
+    <div class="glass count"><b id="days">0</b><span>HARI</span></div>
+    <div class="glass count"><b id="hours">0</b><span>JAM</span></div>
+    <div class="glass count"><b id="mins">0</b><span>MENIT</span></div>
+    <div class="glass count"><b id="secs">0</b><span>DETIK</span></div>
+  </div>
+</section>
+
+<section id="janji">
+  <h2>Janji Kecilku 🤍</h2>
+  <div class="glass promise">
+    <p>♡ Aku akan berusaha mendengarkanmu.</p>
+    <p>♡ Aku akan menghargai perasaanmu.</p>
+    <p>♡ Aku akan merayakan keberhasilanmu.</p>
+    <p>♡ Aku akan menemanimu melewati hari sulit.</p>
+    <p>♡ Aku akan meminta maaf ketika aku salah.</p>
+    <p>♡ Aku akan terus belajar mencintaimu dengan cara yang kamu rasakan.</p>
+    <p>♡ Dan selama kita masih memilih satu sama lain, aku akan menjaga cerita ini sebaik mungkin.</p>
+  </div>
+</section>
+
+<section>
+  <div class="glass quote">"Kalau cinta adalah perjalanan, aku tidak mencari tujuan yang sempurna. Aku hanya ingin perjalanan panjang itu ditemani olehmu." ❤️</div>
+</section>
+
+<section id="wa">
+  <h2>Kirim Pesan Cinta 💬</h2>
+  <p class="subtitle">Tombol ini akan membuka WhatsApp pasangan dengan pesan romantis otomatis.</p>
+  <div class="btns"><a class="btn" id="waLink" href="#" target="_blank" rel="noopener">💚 Chat di WhatsApp</a></div>
+</section>
+
+<footer>
+  <p>Dibuat dengan seluruh rasa sayang yang mungkin ditulis dalam kode. ❤️</p>
+  <p>© <span id="year"></span> — Website Bucin Kita</p>
+</footer>
+<div class="toast" id="toast">Pesan cinta terkirim ke langit. 💗</div>
+
+<script>
+  // ==================== PERSONalisasi ====================
+  // 1) Ganti nomor WA di bawah dengan nomor pasangan, format internasional tanpa +.
+  const whatsappNumber = "6281234567890";
+  const whatsappMessage = "Hai sayang ❤️ Aku cuma mau bilang: terima kasih sudah hadir di hidupku. Aku sayang kamu, hari ini dan seterusnya. — dari orang yang selalu memilihmu.";
+  // 2) Ganti tanggal mulai hubungan: TAHUN, BULAN-1, TANGGAL.
+  const relationshipStart = new Date(2026, 0, 1, 0, 0, 0);
+
+  const waLink = document.getElementById("waLink");
+  waLink.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+  // Bintang dan hati
+  const stars = document.getElementById("stars"), hearts = document.getElementById("hearts");
+  for(let i=0;i<100;i++){
+    const s=document.createElement("i"); s.className="star";
+    s.style.left=Math.random()*100+"%"; s.style.top=Math.random()*100+"%";
+    s.style.animationDelay=(Math.random()*3)+"s"; stars.appendChild(s);
+  }
+  for(let i=0;i<25;i++){
+    const h=document.createElement("span"); h.className="heart"; h.textContent=["♥","♡","❤","✦"][i%4];
+    h.style.left=Math.random()*100+"%"; h.style.animationDelay=(Math.random()*9)+"s"; h.style.animationDuration=(7+Math.random()*8)+"s";
+    hearts.appendChild(h);
+  }
+
+  function updateCounter(){
+    const diff=Math.max(0,Date.now()-relationshipStart.getTime());
+    document.getElementById("days").textContent=Math.floor(diff/86400000);
+    document.getElementById("hours").textContent=Math.floor(diff/3600000)%24;
+    document.getElementById("mins").textContent=Math.floor(diff/60000)%60;
+    document.getElementById("secs").textContent=Math.floor(diff/1000)%60;
+  }
+  setInterval(updateCounter,1000); updateCounter();
+
+  function surprise(){
+    document.getElementById("secret").classList.toggle("show");
+    const t=document.getElementById("toast"); t.classList.add("on");
+    setTimeout(()=>t.classList.remove("on"),2500);
+  }
+
+  const audio=document.getElementById("audio"), disc=document.getElementById("disc");
+  audio.addEventListener("play",()=>disc.classList.remove("paused"));
+  audio.addEventListener("pause",()=>disc.classList.add("paused"));
+  document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
